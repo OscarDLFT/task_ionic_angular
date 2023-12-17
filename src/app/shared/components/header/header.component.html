@@ -15,11 +15,11 @@
 
     <!--DARK MODE-->
     <ion-buttons slot="end">
-      <ion-button *ngIf="darkMode" (click)="setTheme(false)">
+      <ion-button *ngIf="darkMode.value" (click)="setTheme(false)">
         <ion-icon name="sunny-outline"></ion-icon>
       </ion-button>
 
-      <ion-button *ngIf="!darkMode" (click)="setTheme(true)">
+      <ion-button *ngIf="!darkMode.value" (click)="setTheme(true)">
         <ion-icon name="moon-outline"></ion-icon>
       </ion-button>
     </ion-buttons>

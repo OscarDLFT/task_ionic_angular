@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -19,14 +21,18 @@ export class HeaderComponent  implements OnInit {
     return this.color ? this.color : 'primary';
   }
 
-  darkMode: boolean = false;
+  darkMode: BehaviorSubject<boolean> | any;
 
-  constructor() { }
+  constructor(
+    private themeService: ThemeService,
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.darkMode = this.themeService.darkMode;
+  }
 
   setTheme(darkMode: boolean): void {
-    this.darkMode = darkMode;
+    this.themeService.setTheme(darkMode);
   }
 
 }
