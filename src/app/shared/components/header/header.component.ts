@@ -31,6 +31,7 @@ export class HeaderComponent  implements OnInit {
     this.darkMode = this.themeService.darkMode;
   }
 
+  /** Método para indicar si es modo claro u oscuro */
   setTheme(darkMode: boolean): void {
     this.themeService.setTheme(darkMode);
   }
