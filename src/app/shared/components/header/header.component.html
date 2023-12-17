@@ -13,6 +13,7 @@
 
     <ion-title *ngIf="title" [ngClass]="{'ion-text-center': centerTitle}">{{title}}</ion-title>
 
+    <!--DARK MODE-->
     <ion-buttons slot="end">
       <ion-button *ngIf="darkMode" (click)="setTheme(false)">
         <ion-icon name="sunny-outline"></ion-icon>
