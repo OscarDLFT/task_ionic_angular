@@ -1,4 +1,40 @@
 <ion-content [fullscreen]="true">
   <app-header></app-header>
-  <div class="content"></div>
+  <app-logo></app-logo>
+
+  <h2 class="ion-text-center ion-no-margin">Login</h2>
+  <div class="content">
+    <div class="d-flex-center">
+
+      <form class="ion-text-center">
+        <!----EMAIL---->
+        <app-custom-input 
+          [control]="form.controls.email" 
+          type="email" 
+          label="Correo" 
+          icon="mail-outline">
+        </app-custom-input>
+        <div *ngIf="form.controls.email.errors && form.controls.email.dirty" class="validators">
+          <div *ngIf="form.controls.email.errors?.['required']">Escribe tú email</div>
+          <div *ngIf="form.controls.email.errors?.['email']">Escribe un email válido</div>
+        </div>
+  
+        <!----CONTRASEÑA---->
+        <app-custom-input 
+          [control]="form.controls.password" 
+          type="password" 
+          label="Contraseña" 
+          icon="lock-closed-outline">
+        </app-custom-input>
+        <div *ngIf="form.controls.password.errors && form.controls.password.dirty" class="validators">
+          <div *ngIf="form.controls.password.errors?.['required']">Escribe tú contraseña</div>
+        </div>
+  
+        <ion-button class="ion-margin-vertical" type="submit" shape="round" [disabled]="_formValid">
+          Acceder
+          <ion-icon slot="end" name="log-in-outline"></ion-icon>
+        </ion-button>
+      </form>
+    </div>
+  </div>
 </ion-content>
